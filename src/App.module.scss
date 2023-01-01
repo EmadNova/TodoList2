@@ -1,0 +1,126 @@
+body {
+  background-color: #14213d;
+}
+
+.container {
+  padding: 200px;
+  width: 300px;
+  margin: 0 auto;
+
+  .innerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #14213d;
+    border-radius: 10px;
+    padding: 50px 20px;
+    border: 1px solid #fca311;
+
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fca311;
+    }
+
+    .addNewTask {
+      margin-top: 20px;
+
+      input {
+        padding: 5px 12px;
+        border-color: #14213d;
+        border-radius: 5px;
+        background-color: #e5e5e5;
+        color: #000;
+
+        &::placeholder {
+          color: #000;
+        }
+
+        &:focus {
+          outline: none;
+          background-color: #fff;
+        }
+      }
+
+      button {
+        color: #000;
+        background-color: #bdbdbd;
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &:hover {
+          background-color: #fff;
+        }
+      }
+    }
+
+    .allTask {
+      width: 100%;
+
+      .newTask {
+        width: 100%;
+        margin-top: 20px;
+
+        li {
+          list-style: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #e5e5e5;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          padding: 12px;
+
+          .taskID {
+            margin-right: 20px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            border-bottom: 1px solid #fff;
+          }
+
+          h3 {
+            margin-right: 20px;
+            color: #fff;
+            font-size: 16px;
+          }
+
+          .actionBTN {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .dltBTN {
+              font-size: 16px;
+              color: #fff;
+              cursor: pointer;
+              transition: 0.2s ease;
+
+              &:hover {
+                color: #af0f0f;
+              }
+            }
+
+            .edtBTN {
+              margin-right: 10px;
+              font-size: 18px;
+              color: #fff;
+              cursor: pointer;
+              transition: 0.2s ease;
+
+              &:hover {
+                color: #10b44a;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
