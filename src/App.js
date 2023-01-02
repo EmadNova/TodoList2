@@ -14,12 +14,13 @@ const App = () => {
     const [input, setInput] = useState("");
 
     const [task, setTask] = useState([{
-        id: {uuid},
+        id: "",
         number: "",
-        data: {input},
+        data: "",
     }]);
 
     //Helper Functions
+
 
     const inputHandler = (e) => {
         setInput(e.target.value)
@@ -31,9 +32,12 @@ const App = () => {
         if (input.length === 0) {
             alert("Oh, so you dont have any...!?")
         } else {
-            setTask(prevState => [...prevState, task.data])
+            setTask(prevState => [...prevState, {
+                id: uuid(),
+                number: task.length,
+                data: input,
+            }])
         }
-
         setInput("");
     }
 
@@ -55,7 +59,7 @@ const App = () => {
                 </div>
                 <div className={styles.allTask}>
                     <ul className={styles.newTask}>
-                        {task.map(tasks => <Task key={task.id} number={task.number} data={task.data}/>)}
+                        {task.map(task => <Task key={task.id} number={task.number} data={task.data}/>)}
                     </ul>
                 </div>
             </div>

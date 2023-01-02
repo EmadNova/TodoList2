@@ -8,16 +8,20 @@ import {FaRegEdit, FaTrashAlt} from "react-icons/fa";
 
 
 const Task = (props) => {
+
+
     return (
         <div>
-            <li>
-                <span className={styles.taskID}>{props.number}</span>
-                <h3>{props.data}</h3>
-                <div className={styles.actionBTN}>
-                    <span className={styles.edtBTN}><FaRegEdit/></span>
-                    <span className={styles.dltBTN}><FaTrashAlt/></span>
-                </div>
-            </li>
+            {props.data !== "" ?
+                <li>
+                    <span className={styles.taskID}>{props.number}</span>
+                    <h3>{props.data}</h3>
+                    <div className={styles.actionBTN}>
+                        <span className={styles.edtBTN}><FaRegEdit/></span>
+                        <span className={styles.dltBTN}><FaTrashAlt/></span>
+                    </div>
+                </li>
+                : null}
         </div>
     );
 };
