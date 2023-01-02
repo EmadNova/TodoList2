@@ -26,8 +26,7 @@ const App = () => {
         setInput(e.target.value)
     }
 
-    const addHandler = (e) => {
-        e.preventDefault()
+    const addHandler = () => {
 
         if (input.length === 0) {
             alert("Oh, so you dont have any...!?")
@@ -41,10 +40,8 @@ const App = () => {
         setInput("");
     }
 
-    const deleteHandler = (e, task) => {
-        e.preventDefault()
-
-        setTask(task.filter(delTask => delTask.id !== delTask))
+    const deleteHandler = (index) => {
+        setTask(task.filter(delTask => index !== delTask.id))
     }
 
     return (
@@ -62,12 +59,12 @@ const App = () => {
                 </div>
                 <div className={styles.allTask}>
                     <ul className={styles.newTask}>
-                        {task.map((value, task) =>
+                        {task.map((value) =>
                             <Task
                                 key={value.id}
                                 number={value.number}
                                 data={value.data}
-                                delete={(e) => deleteHandler(e, task)}/>)}
+                                delete={() => deleteHandler(value.id)}/>)}
                     </ul>
                 </div>
             </div>
