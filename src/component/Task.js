@@ -7,14 +7,12 @@ import styles from "../App.module.scss";
 import {FaRegEdit, FaTrashAlt} from "react-icons/fa";
 
 
-
-
-const Task = () => {
+const Task = (props) => {
     return (
         <div>
             <li>
-                <span className={styles.taskID}>1</span>
-                <h3>go out</h3>
+                <span className={styles.taskID}>{props.number}</span>
+                <h3>{props.data}</h3>
                 <div className={styles.actionBTN}>
                     <span className={styles.edtBTN}><FaRegEdit/></span>
                     <span className={styles.dltBTN}><FaTrashAlt/></span>
