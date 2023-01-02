@@ -7,8 +7,9 @@ import styles from "../App.module.scss";
 import {FaRegEdit, FaTrashAlt} from "react-icons/fa";
 
 
-const Task = (props) => {
 
+
+const Task = (props) => {
 
     return (
         <div>
@@ -18,7 +19,7 @@ const Task = (props) => {
                     <h3>{props.data}</h3>
                     <div className={styles.actionBTN}>
                         <span className={styles.edtBTN}><FaRegEdit/></span>
-                        <span className={styles.dltBTN}><FaTrashAlt/></span>
+                        <span onClick={props.delete} className={styles.dltBTN}><FaTrashAlt/></span>
                     </div>
                 </li>
                 : null}

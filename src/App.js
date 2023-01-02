@@ -19,8 +19,8 @@ const App = () => {
         data: "",
     }]);
 
-    //Helper Functions
 
+    //Helper Functions
 
     const inputHandler = (e) => {
         setInput(e.target.value)
@@ -41,6 +41,12 @@ const App = () => {
         setInput("");
     }
 
+    const deleteHandler = (e, task) => {
+        e.preventDefault()
+
+        setTask(task.filter(delTask => delTask.id !== delTask))
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
@@ -52,14 +58,16 @@ const App = () => {
                         placeholder="add something..."
                         onChange={inputHandler}
                     />
-                    <button
-                        onClick={addHandler}
-                    >Add
-                    </button>
+                    <button onClick={addHandler}>Add</button>
                 </div>
                 <div className={styles.allTask}>
                     <ul className={styles.newTask}>
-                        {task.map(task => <Task key={task.id} number={task.number} data={task.data}/>)}
+                        {task.map((value, task) =>
+                            <Task
+                                key={value.id}
+                                number={value.number}
+                                data={value.data}
+                                delete={(e) => deleteHandler(e, task)}/>)}
                     </ul>
                 </div>
             </div>
