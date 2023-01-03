@@ -44,6 +44,15 @@ const App = () => {
         setTask(task.filter(delTask => index !== delTask.id))
     }
 
+    const editHandler = (newInput, index) => {
+        setTask(task.map(edtTask => {
+            if (index === edtTask.id) {
+                edtTask = newInput
+            }
+            return edtTask
+        }))
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.innerContainer}>
@@ -64,7 +73,9 @@ const App = () => {
                                 key={value.id}
                                 number={value.number}
                                 data={value.data}
-                                delete={() => deleteHandler(value.id)}/>)}
+                                delete={() => deleteHandler(value.id)}
+                                edit={(e) => editHandler(e, value.id)}
+                            />)}
                     </ul>
                 </div>
             </div>
