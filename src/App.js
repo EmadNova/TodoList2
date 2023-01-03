@@ -42,12 +42,17 @@ const App = () => {
 
     const deleteHandler = (index) => {
         setTask(task.filter(delTask => index !== delTask.id))
+
+        for (let i = 0; i < task.filter.length; i++) {
+            task.filter[i].number = i;
+        }
+
     }
 
     const editHandler = (newInput, index) => {
         setTask(task.map(edtTask => {
-            if (index === edtTask.id) {
-                edtTask = newInput
+            if (edtTask.id === index) {
+                edtTask.data = newInput
             }
             return edtTask
         }))

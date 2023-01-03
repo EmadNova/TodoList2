@@ -3,9 +3,10 @@ body {
 }
 
 .container {
-  padding: 200px;
-  width: 300px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 
   .innerContainer {
     display: flex;
@@ -16,6 +17,7 @@ body {
     border-radius: 10px;
     padding: 50px 20px;
     border: 1px solid #fca311;
+    max-width: 300px;
 
 
     h1 {
@@ -162,4 +164,29 @@ body {
       }
     }
   }
+}
+
+@media screen and (min-width: 1201px) {
+  //Large Desktop
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+  //Desktop
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  //Laptop
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  //TABLET
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  //MOBILE
+
 }
