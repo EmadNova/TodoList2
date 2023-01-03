@@ -3,6 +3,9 @@ import {v4 as uuid} from "uuid";
 
 //SCSS
 import styles from "./App.module.scss";
+import 'react-toastify/dist/ReactToastify.css';
+
+import {ToastContainer, toast} from "react-toastify";
 
 //COMPONENT
 import Task from "./component/Task";
@@ -41,12 +44,15 @@ const App = () => {
     }
 
     const deleteHandler = (index) => {
-        setTask(task.filter(delTask => index !== delTask.id))
+        let filterTask = task.filter(delTask => delTask.id !== index);
 
-        for (let i = 0; i < task.filter.length; i++) {
-            task.filter[i].number = i;
+        for (let i = 0; i < filterTask.length; i++) {
+            filterTask[i].number = i;
         }
 
+        setTask(
+            filterTask,
+        )
     }
 
     const editHandler = (newInput, index) => {

@@ -26,7 +26,12 @@ const Task = (props) => {
     }
 
     const editChangeHandler = () => {
-        setEditing(false)
+
+        if(props.data.length === 0) {
+            alert("Write...")
+        } else {
+            setEditing(false)
+        }
     }
 
 
