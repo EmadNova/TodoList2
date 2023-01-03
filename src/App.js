@@ -29,10 +29,23 @@ const App = () => {
         setInput(e.target.value)
     }
 
+
     const addHandler = () => {
 
         if (input.length === 0) {
-            alert("Oh, so you dont have any...!?")
+            const notify = () => {
+                toast.warn("Write something...!", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            }
+            return notify();
         } else {
             setTask(prevState => [...prevState, {
                 id: uuid(),
@@ -76,6 +89,17 @@ const App = () => {
                         onChange={inputHandler}
                     />
                     <button onClick={addHandler}>Add</button>
+                    <ToastContainer
+                        position="top-right"
+                        autoClose={5000}
+                        hideProgressBar
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable={false}
+                        pauseOnHover
+                        theme="dark"/>
                 </div>
                 <div className={styles.allTask}>
                     <ul className={styles.newTask}>
@@ -84,6 +108,7 @@ const App = () => {
                                 key={value.id}
                                 number={value.number}
                                 data={value.data}
+                                id={value.id}
                                 delete={() => deleteHandler(value.id)}
                                 edit={(e) => editHandler(e, value.id)}
                             />)}

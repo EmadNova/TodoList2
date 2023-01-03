@@ -5,6 +5,7 @@ import styles from "../App.module.scss";
 
 //ICON
 import {FaRegEdit, FaTrashAlt, FaRegCheckCircle} from "react-icons/fa";
+import {toast, ToastContainer} from "react-toastify";
 
 
 const Task = (props) => {
@@ -28,17 +29,27 @@ const Task = (props) => {
     const editChangeHandler = () => {
 
         if(props.data.length === 0) {
-            alert("Write...")
+            const notify = () => {
+                toast.warn("Write something...!", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "dark",
+                });
+            }
+            return notify();
         } else {
             setEditing(false)
         }
     }
 
-
-
     return (
         <div>
-            {props.data !== "" ?
+            {props.id !== "" ?
                 <li>
                     <div className={styles.allNewTask}>
                         <span className={styles.taskID}>{props.number}</span>
@@ -57,6 +68,17 @@ const Task = (props) => {
                             style={editMode}
                         />
                         <FaRegCheckCircle onClick={editChangeHandler} className={styles.editChange} style={editMode} />
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable={false}
+                            pauseOnHover
+                            theme="dark"/>
                     </div>
                 </li>
                 : ""}
